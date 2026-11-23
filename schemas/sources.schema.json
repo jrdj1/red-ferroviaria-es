@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description",
+          "url",
+          "version",
+          "license",
+          "attribution",
+          "sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attribution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ancho-iberico/sources",
+  "title": "sources"
+}

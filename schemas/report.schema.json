@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "km_by_network_kind",
+    "km_by_usage",
+    "counts",
+    "unknown_by_attribute"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "km_by_network_kind": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "km_by_usage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "unknown_by_attribute": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unresolved_events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "overdue_planned_events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "discarded_construction_km": {
+      "type": "number"
+    },
+    "unchecked_station_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commuter_validation": {
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ancho-iberico/report",
+  "title": "report"
+}

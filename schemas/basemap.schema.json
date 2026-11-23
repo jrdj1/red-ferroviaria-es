@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "type",
+    "features"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "type": {
+      "const": "FeatureCollection"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "geometry",
+          "properties"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "const": "Feature"
+          },
+          "geometry": {
+            "type": "object",
+            "required": [
+              "type",
+              "coordinates"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "Polygon",
+                  "MultiPolygon",
+                  "LineString",
+                  "MultiLineString"
+                ]
+              },
+              "coordinates": {
+                "type": "array"
+              }
+            }
+          },
+          "properties": {
+            "type": "object",
+            "required": [
+              "layer",
+              "code"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "layer": {
+                "enum": [
+                  "land",
+                  "municipal_boundary"
+                ]
+              },
+              "code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ancho-iberico/basemap",
+  "title": "basemap"
+}

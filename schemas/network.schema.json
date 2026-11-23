@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "station_id",
+          "x",
+          "y"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^n_[a-z2-7]{12}$"
+          },
+          "kind": {
+            "enum": [
+              "station",
+              "junction",
+              "end",
+              "gauge_changer",
+              "border"
+            ]
+          },
+          "station_id": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^n_[a-z2-7]{12}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "from",
+          "to",
+          "polyline",
+          "pk",
+          "length_m",
+          "network_kind",
+          "gauge",
+          "electrified",
+          "max_speed_kmh",
+          "tracks",
+          "usage",
+          "commuter",
+          "border",
+          "unknown"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^e_[a-z2-7]{12}$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^n_[a-z2-7]{12}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^n_[a-z2-7]{12}$"
+          },
+          "polyline": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "pk": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "length_m": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "network_kind": {
+            "enum": [
+              "high_speed",
+              "conventional",
+              "narrow_gauge",
+              "metro",
+              "tram"
+            ]
+          },
+          "gauge": {
+            "enum": [
+              "iberian",
+              "standard",
+              "metric",
+              "mixed"
+            ]
+          },
+          "electrified": {
+            "type": "boolean"
+          },
+          "max_speed_kmh": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "tracks": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "usage": {
+            "enum": [
+              "passenger",
+              "freight",
+              "mixed"
+            ]
+          },
+          "commuter": {
+            "type": "boolean"
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "unknown": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "gauge",
+                "electrified",
+                "max_speed_kmh",
+                "tracks"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ancho-iberico/network",
+  "title": "network"
+}

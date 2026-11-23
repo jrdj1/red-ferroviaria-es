@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "entries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from_version",
+          "old_id",
+          "new_ids",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from_version": {
+            "type": "string"
+          },
+          "old_id": {
+            "type": "string",
+            "pattern": "^[ne]_[a-z2-7]{12}$"
+          },
+          "new_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[ne]_[a-z2-7]{12}$"
+            }
+          },
+          "reason": {
+            "enum": [
+              "split",
+              "merged",
+              "rekeyed",
+              "removed"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ancho-iberico/id_equivalences",
+  "title": "id_equivalences"
+}

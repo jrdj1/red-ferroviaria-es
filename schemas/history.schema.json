@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "start_date",
+    "changes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "start_date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "date",
+          "approximate",
+          "end_date",
+          "status",
+          "edges",
+          "stations",
+          "set",
+          "source"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "type": {
+            "enum": [
+              "open",
+              "close",
+              "temp_close",
+              "reopen",
+              "electrify",
+              "gauge_change",
+              "double_track",
+              "station_open",
+              "station_close",
+              "other"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          },
+          "approximate": {
+            "type": "boolean"
+          },
+          "end_date": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "confirmed",
+              "planned"
+            ]
+          },
+          "edges": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^e_[a-z2-7]{12}$"
+            }
+          },
+          "stations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^n_[a-z2-7]{12}$"
+            }
+          },
+          "set": {
+            "type": "object"
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^https?://"
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ancho-iberico/history",
+  "title": "history"
+}
