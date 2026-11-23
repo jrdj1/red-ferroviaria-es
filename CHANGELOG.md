@@ -1,5 +1,17 @@
 # Cambios
 
+## v2026.11.2 — 2026-11-23
+
+Conectividad corregida en el Levante. Misma instantánea de OSM (1/11/2026).
+
+- `regions/levante/`: Xàtiva vuelve a enlazar con la línea hacia València y con el ramal de
+  Alcoi (tenía una sola estación vecina). En la red del 14/12/2020, Villena AV llega a Alicante y
+  Requena-Utiel a València Joaquín Sorolla: solo quedan sin estaciones vecinas Elche AV y Callosa
+  de Segura-Cox, abiertas en 2021. Aparecen algunos tramos de 2020 que antes se perdían junto a
+  una línea paralela de otro tipo; los que no tienen evento figuran como huecos en `report.json`.
+  Se conserva el 99,8 % de los ids de tramos (los cambiados están en `id_equivalences.json`).
+- `national/`: mismas estaciones; ids de tramos casi sin cambios (98,5 %).
+
 ## v2026.11.1 — 2026-11-23
 
 Corrección de la historia del Levante. Misma instantánea de OSM (1/11/2026).
