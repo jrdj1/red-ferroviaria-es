@@ -1,5 +1,20 @@
 # Cambios
 
+## v2026.11.4 — 2026-11-24
+
+Estaciones del dataset nacional que no llegaban a ninguna otra. Misma instantánea de OSM (1/11/2026).
+
+- `national/`: de diez estaciones sin camino a ninguna otra queda solo Luchon (Francia, su línea
+  sale del recorte de la península). Vuelven a enlazar Granada, Bilbao La Concordia, Monforte de
+  Lemos, Huércal-Viator, Cortes de la Frontera, Santo Estevo do Sil, Estivella - Albalat dels
+  Tarongers, Manresa-Viladordis y Ossès-St Martin d'Arrossa: se cosen los cortes de mapeo de
+  hasta 400 m (como en las regiones), los tramos de pocos centímetros ya no parten la red y se
+  conservan las vías de paso de FGC que OSM etiqueta como apartado. Aparecen Igualada,
+  Salou-Port Aventura y Sant Vicenç | Castellgalí: 1.613 estaciones. Se conserva el 99,1 % de los
+  ids de tramos y todos los de estaciones.
+- `regions/levante/`: en La Encina, un extremo suelto y un nudo a 30 cm pasan a ser un solo nodo
+  (2 tramos con id nuevo, en `id_equivalences.json`). Estaciones e historia sin cambios.
+
 ## v2026.11.3 — 2026-11-24
 
 Estaciones sin nombre en OSM en el dataset nacional. Misma instantánea de OSM (1/11/2026).

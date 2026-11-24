@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Si usas estos datos, cítalos así y mantén las atribuciones de LICENSE.md."
 title: "red-ferroviaria-es: datasets abiertos de la red ferroviaria de España"
 type: dataset
-version: "2026.11.3"
+version: "2026.11.4"
 date-released: "2026-11-24"
 license: ODbL-1.0
 repository-code: "https://github.com/jrdj1/red-ferroviaria-es"
