@@ -1,5 +1,15 @@
 # Cambios
 
+## v2026.11.3 — 2026-11-24
+
+Estaciones sin nombre en OSM en el dataset nacional. Misma instantánea de OSM (1/11/2026).
+
+- `national/`: las estaciones que no tienen ningún nombre en OSM lo toman de su parada de
+  Cercanías de Renfe (el resto de nombres no cambia). Aparecen Crevillente (con el mismo id que
+  en `regions/levante/`), Aguda, Barros y Hernani-Erdia: 1.610 estaciones. La red no cambia.
+  `sources.json` registra el GTFS de Cercanías como fuente.
+- `regions/levante/`: sin cambios.
+
 ## v2026.11.2 — 2026-11-23
 
 Conectividad corregida en el Levante. Misma instantánea de OSM (1/11/2026).
